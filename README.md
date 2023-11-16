@@ -93,6 +93,7 @@
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/8870daf9-97ba-420a-9264-dfba1ca89b7b)
 
 圖(十二)
+
 接著進到FIR主要的功能部份，firmware的部分使用一層迴圈來完成，N=64，傳送64筆由CPU產生的data到FIR，每次會先讀取Xn是否可以傳送，直到FIR回送準備好的信號後傳送Xn。
 再來會去讀取Yn是否運算完成，讀到後會收取FIR運算完的data，並將其左移24bit，此舉是為了讓data對齊mprj，使其由mprj[31:24]傳送回TB端，接著判斷是否為最後一筆資料，若為最後一筆資料則在mprj[23:16]輸出0x5A；若不是最後一筆資料則在mprj[23:16]輸出目前的計數數字，讓TB端可以將data和在TB端產生的golden data做比對並輸出結果是否正確。
 最後將FIR的狀態清除並重複以上動作直到data傳送完。如圖(十三)。
@@ -100,6 +101,7 @@
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/afb2c6f1-bc25-4448-84ac-08a01bb12bad)
 
 圖(十三)
+
 而在TB端的部分會去做latency timer的控制，以及TB會去比對資料的正確性後，將結果顯示出來，如以下四張圖。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/4b74de98-75a3-4ea4-967f-892a6eb5e8d1)
@@ -117,36 +119,43 @@
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/636680b8-4937-4aeb-8c66-a84137b447d7)
 
 圖(十七)
+
 下面的部分是抽出FIR的執行過程的波型以及解釋，圖(十八)是讀取FIR是否準備收取data。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/ad3a8886-3877-4636-b5d8-6fa92aa42dac)
 
 圖(十八)
+
 接著是傳送data到FIR中的部分，如圖(十九)。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/b8793c0d-e346-43db-a047-06d90254e3bc)
 
 圖(十九)
+
 圖(二十)為收到FIR傳回Yn準備好的信號。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/d799960f-4444-4067-a189-56b7cb56b0da)
 
 圖(二十)
+
 然後收取FIR運算完的結果，如圖(二十一)。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/e4de102b-3ec5-40e0-879b-7b4ddde9c868)
 
 圖(二十一)
+
 最後一筆資料加上0x005A的結果如圖(二十二)。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/e896ee79-a43d-4a2e-9e1d-dd9693228fe3)
 
 圖(二十二)
+
 圖(二十三)是將FIR的狀態回復至原先狀態。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/c8e99644-b9d4-4c75-a88f-f91a5ab8fbf7)
 
 圖(二十三)
+
 圖(二十四)是最後的部分，firmware code的部分，會先讀取到done flag，最後到迴圈外面輸出0xAB61後結束模擬。
 
 ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/12287f2b-570e-48b8-aef2-494b6f590ae6)
