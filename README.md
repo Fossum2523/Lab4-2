@@ -61,20 +61,20 @@
 
 以及傳送data的部分，如圖(七)和圖(八)波型。
 
-![Uploading image.png…]()
+
 
 圖(七)
 
-![Uploading image.png…]()
+
 
 圖(八)
 在傳送完這些東西之後會再次檢查是否回到IDLE後，打出ap_start並開始計數如圖(九)和圖(十)波型。
 
-![Uploading image.png…]()
+
 
 圖(九)
 
-![Uploading image.png…]()
+
 
 圖(十)
 
