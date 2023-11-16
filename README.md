@@ -13,8 +13,10 @@
   除了紀錄輸入的length值的暫存器外，都使用mux來做選擇輸入的動作，因此控制訊號就是圍繞這些mux，以及我們使用了enable來控制是否寫入此暫存器。
    
   ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/cd405d9d-67f4-45ba-9a24-dc8ef636d9e2)
+  
   圖(一)
   ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/0b5acb24-cc54-446b-98b0-7b708f06b4c8)
+  
   圖(二)
 
 。	FSM
