@@ -162,6 +162,6 @@
 
 圖(二十四)
 
-四、	The interface protocol between firmware, user project and testbench
+二、The interface protocol between firmware, user project and testbench
 
 Firmware和user project和Testbench之間的溝通是透過Wishbone bus，以及透過Wishbone bus to AXI的部分轉換成FIR看的懂的AXI interface。在FIR計算開始前firmware會打出0x00A5到mprj的第23到第16隻讓latency timer開始計數，並根據Configuration Register Address map傳送適當的資料到FIR，而FIR的輸出結果會被我們的firmware端存起來，而我們的firmware端會把FIR的資料結果放到mprj的第31到第24隻，而mprj的第23到第16隻firmware會傳出目前是第幾筆資料被送出，且在最後一筆資料時會送出0x5A。藉由此操作就能夠讓TB端能夠核對送回來的答案。
