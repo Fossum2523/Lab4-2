@@ -38,32 +38,44 @@
   8.	DONE：
   此狀態會將data BRAM的值在次清空，這樣到IDLE時若要直接進到RD_Xn做讀data，卷積的動作時結果才會正確。
 
-  ![Uploading image.png…]()
+  ![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/118a0982-bc42-4c5e-8f5c-49e4420b5b49)
+
   圖(三)
-
-
-
 
 三、	Waveform and analysis of the hardware/software behavior
 由圖(四)的firmware code中可以看到，在打出0xAB60後會先確定一次FIR是否IDLE如圖(五)。
- 
+
+![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/63791b1c-5cd3-4b47-80f1-396f5c8cd90f)
+
 圖(四)
- 
+
+![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/5e1759dd-5548-490e-a529-87854196f452)
+
 圖(五)
 讀到FIR的狀態且為IDLE後就開始傳送length，如圖(六)波型。
- 
+
+![image](https://github.com/Fossum2523/Lab4-2/assets/131112486/ebd9425a-613a-46bd-a498-b9263c227dcb)
+
 圖(六)
 
 
 以及傳送data的部分，如圖(七)和圖(八)波型。
- 
+
+![Uploading image.png…]()
+
 圖(七)
- 
+
+![Uploading image.png…]()
+
 圖(八)
 在傳送完這些東西之後會再次檢查是否回到IDLE後，打出ap_start並開始計數如圖(九)和圖(十)波型。
- 
+
+![Uploading image.png…]()
+
 圖(九)
- 
+
+![Uploading image.png…]()
+
 圖(十)
 
 
